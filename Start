@@ -1,0 +1,54 @@
+#Imports
+from tkinter import *
+from tkinter import ttk
+
+#Key down function
+def click():
+    entered_text = textentry.get() #Collects the text. 
+    output.delete(0.0, END)
+
+
+#Main part:
+window = Tk()
+window.title("Hof te Apples")
+width, height = window.winfo_screenwidth(), window.winfo_screenheight()
+window.configure(background = "black")
+window.geometry('%dx%d+0+0' % (width,height))
+#My photo
+photo1 = PhotoImage(file="Sunny.png")
+Label (window, image=photo1, bg = "black").grid(row=0, column = 0, sticky = W)
+
+#create label
+Label(window, text = "Enter the word you would like a definition for:", bg = "black", fg="white", font = "none 12 bold").grid(row=1, column = 0, sticky = W)
+
+#create a text entry box
+textentry = Entry(window, width=20, bg="white")
+textentry.grid(row=2, column=0, sticky = W)
+#add a submit button
+Button (window, text="SUBMIT", width = 6, command=click).grid(row=3, column=0, sticky=W)
+
+
+#create another label
+Label (window, text="\nDefinition:", bg = "black", fg= "white", font="none 12 bold").grid(row = 4, column = 0, sticky = W)
+
+#create a text box
+output = Text( window, width = 75, height = 6, wrap= WORD, background = "white")
+output.grid(row=5, column = 0, columnspan= 2, sticky=W)
+
+
+#the dictionary
+my_compdictionary = {
+    'algorithm:': 'Step by step instructions to complete a task', 'bug': 'piece of code that causes a program to fail'
+}
+
+#Run the main loop
+window.mainloop()
+
+
+
+
+
+
+
+
+
