@@ -1,6 +1,9 @@
 #Imports
 from tkinter import *
 from tkinter import ttk
+import os
+
+imagepath = "c:/Users/diede/Documents/Python Scripts/Apples/Images/"
 
 #Key down function
 def click():
@@ -12,11 +15,11 @@ def click():
 window = Tk()
 window.title("Hof te Apples")
 width, height = window.winfo_screenwidth(), window.winfo_screenheight()
-window.configure(background = "black")
 window.geometry('%dx%d+0+0' % (width,height))
 #My photo
-photo1 = PhotoImage(file="Sunny.png")
-Label (window, image=photo1, bg = "black").grid(row=0, column = 0, sticky = W)
+photo1 = PhotoImage(file= os.path.join(imagepath, "Apple.png"))
+
+Label (window, image=photo1).grid(row=0, column = 0, sticky = W)
 
 #create label
 Label(window, text = "Enter the word you would like a definition for:", bg = "black", fg="white", font = "none 12 bold").grid(row=1, column = 0, sticky = W)
@@ -26,7 +29,6 @@ textentry = Entry(window, width=20, bg="white")
 textentry.grid(row=2, column=0, sticky = W)
 #add a submit button
 Button (window, text="SUBMIT", width = 6, command=click).grid(row=3, column=0, sticky=W)
-
 
 #create another label
 Label (window, text="\nDefinition:", bg = "black", fg= "white", font="none 12 bold").grid(row = 4, column = 0, sticky = W)
