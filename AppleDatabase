@@ -1,0 +1,26 @@
+CREATE TABLE APPLESORT(
+    AppleSort   TEXT,
+    ImageApple  TEXT,
+    ImageTree   TEXT,
+    ImageLeaf   TEXT,
+    GardenID    TEXT,
+    PRIMARY KEY(AppleSort),
+    FOREIGN KEY(GardenID) REFERENCES GARDEN(GardenID)
+);
+
+
+CREATE TABLE PEARSORT(
+    PearSort    TEXT,
+    ImageApple  TEXT,
+    ImageTree   TEXT,
+    ImageLeaf   TEXT,
+    PRIMARY KEY(AppleSort),
+    FOREIGN KEY(GardenID) REFERENCES GARDEN(GardenID)
+);
+
+CREATE TABLE GARDEN(
+    GardenID    TEXT,
+    AmountTrees INT,
+    GardenImage TEXT,
+    IconsInGarden,  TEXT
+)
