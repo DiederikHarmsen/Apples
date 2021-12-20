@@ -1,15 +1,16 @@
 #Imports
 from tkinter import *
 from tkinter import ttk
-import os
+import os, sqlite3
 
 imagepath = "c:/Users/diede/Documents/Python Scripts/Apples/Images/"
 
 #Key down function
-def click():
-    entered_text = textentry.get() #Collects the text. 
-    output.delete(0.0, END)
 
+def addTree():
+    AppleSort = textentry.get()
+    print(AppleSort)
+    #Put applesort into database
 
 #Main part:
 window = Tk()
@@ -22,16 +23,16 @@ photo1 = PhotoImage(file= os.path.join(imagepath, "Apple.png"))
 Label (window, image=photo1).grid(row=0, column = 0, sticky = W)
 
 #create label
-Label(window, text = "Enter the word you would like a definition for:", bg = "black", fg="white", font = "none 12 bold").grid(row=1, column = 0, sticky = W)
+Label(window, text = "Enter the word you would like a definition for", font = "none 12 bold").grid(row=1, column = 0, sticky = W)
 
 #create a text entry box
-textentry = Entry(window, width=20, bg="white")
+textentry = Entry(window, width=20)
 textentry.grid(row=2, column=0, sticky = W)
 #add a submit button
-Button (window, text="SUBMIT", width = 6, command=click).grid(row=3, column=0, sticky=W)
+Button (window, text="SUBMIT", width = 6, command=addTree).grid(row=3, column=0, sticky=W)
 
 #create another label
-Label (window, text="\nDefinition:", bg = "black", fg= "white", font="none 12 bold").grid(row = 4, column = 0, sticky = W)
+Label (window, text="\nDefinition:", font="none 12 bold").grid(row = 4, column = 0, sticky = W)
 
 #create a text box
 output = Text( window, width = 75, height = 6, wrap= WORD, background = "white")
@@ -42,6 +43,12 @@ output.grid(row=5, column = 0, columnspan= 2, sticky=W)
 my_compdictionary = {
     'algorithm:': 'Step by step instructions to complete a task', 'bug': 'piece of code that causes a program to fail'
 }
+
+
+
+
+
+
 
 #Run the main loop
 window.mainloop()
