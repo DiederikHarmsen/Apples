@@ -12,24 +12,34 @@ def addTree():
     print(AppleSort)
     #Put applesort into database
 
-#Main part:
+#A drag and drop system. 
+
+#Window specification:
 window = Tk()
 window.title("Hof te Apples")
 width, height = window.winfo_screenwidth(), window.winfo_screenheight()
 window.geometry('%dx%d+0+0' % (width,height))
-#My photo
-photo1 = PhotoImage(file= os.path.join(imagepath, "Apple.png"))
+window.configure(bg="#dce6d8")
 
-Label (window, image=photo1).grid(row=0, column = 0, sticky = W)
+
+
+#The icons
+AppleIcon = PhotoImage(file= os.path.join(imagepath, "Apple.png"))
+PearIcon = PhotoImage(file= os.path.join(imagepath, "Pear.png"))
+Label (window, image=AppleIcon).grid(row=0, column = 0, sticky = W)
+Label (window, image=PearIcon).grid(row=0, column = 0, sticky = W)
+
 
 #create label
 Label(window, text = "Enter the word you would like a definition for", font = "none 12 bold").grid(row=1, column = 0, sticky = W)
+
 
 #create a text entry box
 textentry = Entry(window, width=20)
 textentry.grid(row=2, column=0, sticky = W)
 #add a submit button
 Button (window, text="SUBMIT", width = 6, command=addTree).grid(row=3, column=0, sticky=W)
+
 
 #create another label
 Label (window, text="\nDefinition:", font="none 12 bold").grid(row = 4, column = 0, sticky = W)
