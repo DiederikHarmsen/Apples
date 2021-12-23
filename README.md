@@ -1,2 +1,3 @@
 # Apples
-# Project with the goal is to present a garden overview. 
+### Project with the goal is to present a garden overview. 
+
