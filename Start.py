@@ -12,21 +12,19 @@ class TuinOverzicht(QMainWindow):
     # Window information
     def __init__(self, parent = None):
         super().__init__(parent)
-        self._scale_factor = 1.0
+        self._scale_factor = 3.0
         self._first_file_dialog = True
         self._image_label = QLabel()
         self._image_label.setBackgroundRole(QPalette.Base)
         self._image_label.setSizePolicy(QSizePolicy.Ignored,
                                        QSizePolicy.Ignored)
         self._image_label.setScaledContents(True)
-
         self._scroll_area = QScrollArea()
         self._scroll_area.setBackgroundRole(QPalette.Dark)
         self._scroll_area.setWidget(self._image_label)
         self._scroll_area.setVisible(False)
         self.setCentralWidget(self._scroll_area)
 
-        self._create_actions()
 
         self.resize(QGuiApplication.primaryScreen().availableSize() * 3 / 5)
 
