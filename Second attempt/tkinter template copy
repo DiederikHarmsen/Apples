@@ -28,13 +28,15 @@ class MenuBar(tk.Menu):
         tk.Menu.__init__(self, parent)
 
         menu_file = tk.Menu(self, tearoff=0)
-        self.add_cascade(label="Menu1", menu=menu_file)
+        self.add_cascade(label="Garden List", menu=menu_file)
         menu_file.add_command(label="All Widgets", command=lambda: parent.show_frame(Some_Widgets))
         menu_file.add_separator()
         menu_file.add_command(label="Exit Application", command=lambda: parent.Quit_application())
 
         menu_orders = tk.Menu(self, tearoff=0)
-        self.add_cascade(label="Menu2", menu=menu_orders)
+        self.add_cascade(label="Garden overview", menu=menu_file)
+        menu_file.add_command(label="See Garden", command=lambda: parent.show_frame(Garden_overview))
+        menu_file.add_command(label="Add Trees", command=lambda: parent.show_frame(AddToGarden))
 
         menu_pricing = tk.Menu(self, tearoff=0)
         self.add_cascade(label="Menu3", menu=menu_pricing)
@@ -66,7 +68,7 @@ class MyApp(tk.Tk):
         # self.resizable(0, 0) prevents the app from being resized
         # self.geometry("1024x600") fixes the applications size
         self.frames = {}
-        pages = (Some_Widgets, PageOne, PageTwo, PageThree, PageFour)
+        pages = (Some_Widgets, PageOne, PageTwo, PageThree, PageFour, Garden_overview, AddToGarden)
         for F in pages:
             frame = F(main_frame, self)
             self.frames[F] = frame
@@ -171,11 +173,29 @@ class Some_Widgets(GUI):  # inherits from the GUI class
         Load_data()
 
 
+
+class Garden_overview(GUI):
+    def __init__(self, parent, controller):
+        GUI.__init__(self, parent)
+
+        label1 = tk.Label(self.main_frame, font=("Verdana", 20), text="Overview of garden")
+        label1.pack(side="top")
+
+
+
+class AddToGarden(GUI):
+    def __init__(self, parent, controller):
+        GUI.__init__(self, parent)
+
+        label1 = tk.Label(self.main_frame, font=("Verdana", 20), text="Edit Garden")
+        label1.pack(side="top")
+
+
 class PageOne(GUI):
     def __init__(self, parent, controller):
         GUI.__init__(self, parent)
 
-        label1 = tk.Label(self.main_frame, font=("Verdana", 20), text="Page One")
+        label1 = tk.Label(self.main_frame, font=("Verdana", 20), text="Edit garden")
         label1.pack(side="top")
 
 
